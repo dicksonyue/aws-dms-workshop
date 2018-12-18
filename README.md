@@ -339,21 +339,15 @@ Create a new SCT project
 
     -   In the top of icon, select "Connect to Oracle"
 
+|Type 			|SID
 |-------------|--------------------------------------|
-| Type        | SID                                  |
-|=============|======================================|
 | Server Name | DNS name of your Oracle RDS instance |
 |             |                                      |
 |             | (follow next screen)                 |
-|-------------|--------------------------------------|
 | Server Port | 1521                                 |
-|-------------|--------------------------------------|
 | Oracle SID  | ORCL                                 |
-|-------------|--------------------------------------|
 | User name   | dbmaster                             |
-|-------------|--------------------------------------|
 | Password    | oraadmin123                          |
-|-------------|--------------------------------------|
 
 RDS endpoints
 
@@ -464,14 +458,10 @@ Create Source Endpoint
 -   Click on '**Create Endpoint**'
 
 -   Enter these Details
-|
-|-----------------------------------|-----------------------------------|
+
 | Endpoint Type                     | Source                            |
-|===================================|===================================|
 | Endpoint identifier               | dms-workshop-oracle               |
-|-----------------------------------|-----------------------------------|
 | Source engine:                    | oracle                            |
-|-----------------------------------|-----------------------------------|
 | Server name                       | \<oralce-rds-dns-endpoint\>       |
 |                                   |                                   |
 |                                   | get this from here                |
@@ -479,24 +469,15 @@ Create Source Endpoint
 |                                   | https://ap-southeast-1.console.aw |
 |                                   | s.amazon.com/rds/home?region=ap-s |
 |                                   | outheast-1\#dbinstances           |
-|-----------------------------------|-----------------------------------|
 | Port                              | 1521                              |
-|-----------------------------------|-----------------------------------|
 | SSL Mode                          | none                              |
-|-----------------------------------|-----------------------------------|
 | User name                         | dbmaster                          |
-|-----------------------------------|-----------------------------------|
 | Password                          | oraadmin123                       |
-|-----------------------------------|-----------------------------------|
 | SID                               | ORCL                              |
-|-----------------------------------|-----------------------------------|
 | VPC                               | \[cf-stack-name\]                 |
-|-----------------------------------|-----------------------------------|
 | Replication instance              | dms-workshop-instance             |
-|-----------------------------------|-----------------------------------|
 | Refresh schemas after successful  | Checked                           |
 | connection test                   |                                   |
-|-----------------------------------|-----------------------------------|
 
 ![](.//media/image29.png)
 
@@ -517,37 +498,24 @@ Create Target Endpoint
 
 -   Enter these Details
 
-|-----------------------------------|-----------------------------------|
 | Endpoint Type                     | Target                            |
-|===================================|===================================|
 | Endpoint identifier               | dms-workshop-postgres             |
-|-----------------------------------|-----------------------------------|
 | Source engine:                    | postgres                          |
-|-----------------------------------|-----------------------------------|
 | Server name                       | \< postgres-rds-dns-endpoint\>    |
 |                                   |                                   |
 |                                   | get this from here                |
 |                                   | https://ap-southeast-1.console.aw |
 |                                   | s.amazon.com/rds/home?region=ap-s |
 |                                   | outheast-1\#dbinstances           |
-|-----------------------------------|-----------------------------------|
 | Port                              | 5432                              |
-|-----------------------------------|-----------------------------------|
 | SSL Mode                          | none                              |
-|-----------------------------------|-----------------------------------|
 | User name                         | postadmin                         |
-|-----------------------------------|-----------------------------------|
 | Password                          | postadmin123                      |
-|-----------------------------------|-----------------------------------|
 | Database Name                     | postgres                          |
-|-----------------------------------|-----------------------------------|
 | VPC                               | \[cf-stack-name\]                 |
-|-----------------------------------|-----------------------------------|
 | Replication instance              | dms-workshop-instance             |
-|-----------------------------------|-----------------------------------|
 | Refresh schemas after successful  | Checked                           |
 | connection test                   |                                   |
-|-----------------------------------|-----------------------------------|
 
 ![](.//media/image31.png)
 
@@ -720,7 +688,7 @@ Create Target Endpoint
 -   Enter these Details
 
   |Endpoint Type         |Target
-  |--------------------- |----------------------------------------------------------------------------------------------------------------------
+  |---------------------|--------------------  
   |Endpoint identifier   |dms-workshop-redshift
   |Target engine:        |redshift
   |Server name\*         |get this from here <https://ap-southeast-1.console.aws.amazon.com/redshift/home?region=ap-southeast-1#cluster-list>:
@@ -812,7 +780,6 @@ Configure your SQL bench with new redshift
 |                                   | <https://s3.amazonaws.com/redshif |
 |                                   | t-downloads/drivers/RedshiftJDBC4 |
 |                                   | 2-1.2.7.1003.jar>                 |
-|===================================|===================================|
 | Url                               | jdbc:redshift://{your redshift    |
 |                                   | endpoint}.ap-southeast-1.redshift |
 |                                   | .amazonaws.com:5439/dw            |
@@ -820,11 +787,8 @@ Configure your SQL bench with new redshift
 |                                   | https://ap-southeast-1.console.aw |
 |                                   | s.amazon.com/redshift/home?region |
 |                                   | =ap-southeast-1\#cluster-list:    |
-|-----------------------------------|-----------------------------------|
 | User name                         | Rsadmin                           |
-|-----------------------------------|-----------------------------------|
 | Password                          | rsAdmin123                        |
-|-----------------------------------|-----------------------------------|
 
 Run the script below to verify
 
@@ -863,11 +827,9 @@ Create Target Endpoint
 -   Enter these Details
 
 | Endpoint Type                     | Target                            |
-|===================================|===================================|
+|-----------------------------------|-----------------------------------|
 | Endpoint identifier               | dms-workshop-s3                   |
-|-----------------------------------|-----------------------------------|
 | Target engine:                    | S3                                |
-|-----------------------------------|-----------------------------------|
 | Service Access Role ARN\*         | arn:aws:iam::{accounted}:role/{ro |
 |                                   | le-name}                          |
 |                                   |                                   |
@@ -875,20 +837,12 @@ Create Target Endpoint
 |                                   | <https://console.aws.amazon.com/i |
 |                                   | am/home?region=ap-southeast-1#/ro |
 |                                   | les>                              |
-|-----------------------------------|-----------------------------------|
 | Target bucket name\*              | {bucket-name}                     |
-|-----------------------------------|-----------------------------------|
 | Target bucket folder\*            | dms                               |
-|-----------------------------------|-----------------------------------|
 | VPC                               | \[cf-stack-name\]                 |
-|-----------------------------------|-----------------------------------|
 | Replication instance              | dms-workshop-instance             |
-|-----------------------------------|-----------------------------------|
 | Refresh schemas after successful  | Checked                           |
 | connection test                   |                                   |
-|-----------------------------------|-----------------------------------|
-|                                   |                                   |
-|-----------------------------------|-----------------------------------|
 
 #### IAM DMS Role 
 
@@ -1056,36 +1010,38 @@ Appendix
 
 
 
-| Oracle - Get row count for all tables                    |
-| SELECT table\_name, num\_rows                            |
-|                                                          |
-| FROM dba\_tables                                         |
-|                                                          |
-| WHERE owner = \'DMS\_SAMPLE\'                            |
-|                                                          |
-| ORDER BY table\_name;                                    |
-| Postgres                                                 |
-| SELECT relname AS table\_name, n\_live\_tup AS num\_rows |
-|                                                          |
-| FROM pg\_stat\_user\_tables                              |
-|                                                          |
-| WHERE schemaname = \'dms\_sample\'                       |
-|                                                          |
-| ORDER BY table\_name                                     |
+| Oracle - Get row count for all tables  
+|-----------------------------------
+| SELECT table\_name, num\_rows                            
+                                                          
+ FROM dba\_tables                                         
+                                                          
+ WHERE owner = \'DMS\_SAMPLE\'                            
+                                                          
+ ORDER BY table\_name;                                    
+ Postgres                                                 
+ SELECT relname AS table\_name, n\_live\_tup AS num\_rows 
+                                                          
+ FROM pg\_stat\_user\_tables                              
+                                                          
+ WHERE schemaname = \'dms\_sample\'                       
+                                                          
+ ORDER BY table\_name                                     
 
-| Oracle - Command to get database size on disk                         |
-| SELECT owner, SUM(bytes) / 1024 / 1024 Size\_MB                       |
-|                                                                       |
-| FROM dba\_segments                                                    |
-|                                                                       |
-| WHERE owner = \'DMS\_SAMPLE\'                                         |
-|                                                                       |
-| group by owner;                                                       |
-| Postgres - Command to get database size on disk                       |
-| SELECT pg\_size\_pretty(CAST((SELECT SUM(pg\_total\_relation\_size    |
-| (table\_schema \|\| \'.\' \|\| table\_name)) FROM                     |
-| information\_schema.tables WHERE table\_schema = \'dms\_sample\') AS  |
-| BIGINT)) AS tables\_schema\_size                                      |
+| Oracle - Command to get database size on disk   
+|-----------------------------------                      
+| SELECT owner, SUM(bytes) / 1024 / 1024 Size\_MB                       
+                                                                       
+ FROM dba\_segments                                                    
+                                                                       
+ WHERE owner = \'DMS\_SAMPLE\'                                         
+                                                                       
+ group by owner;                                                       
+ Postgres - Command to get database size on disk                       
+ SELECT pg\_size\_pretty(CAST((SELECT SUM(pg\_total\_relation\_size    
+ (table\_schema \|\| \'.\' \|\| table\_name)) FROM                     
+ information\_schema.tables WHERE table\_schema = \'dms\_sample\') AS  
+ BIGINT)) AS tables\_schema\_size                                      
 
   Drop dms\_sample and restart dms task
   ---------------------------------------
