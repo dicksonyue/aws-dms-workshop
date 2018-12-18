@@ -15,8 +15,7 @@ dyue@amazon.com
 
 RUN THIS WORKSHOP IN AP-SOUTHEAST-1 (SINGAPORE)
 
-Objective
-=========
+# Objective
 
 In this lab, you will be performing a migration from Oracle to
 PostgreSQL using SCT and DMS
@@ -62,9 +61,9 @@ Optional
 
 -   Query data in Redshift and Athena
 
-#Prerequisites
+# Prerequisites
 
-###Install a SQL Client
+### Install a SQL Client
 
 -   Install a SQL client of your choice; in this lab -- we will be using
     SQLWorkbenchJ screenshots
@@ -75,13 +74,13 @@ Optional
 
     -   SQuirrel: <http://squirrel-sql.sourceforge.net/>
 
-###Install SCT
+### Install SCT
 
 -   Download the latest version of AWS Schema Conversion Tool (SCT) from
     this link
     <https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/CHAP_Installing.html>
 
-###Download JDBC Drivers
+### Download JDBC Drivers
 
 -   Download & keep this file locally
 
@@ -109,7 +108,7 @@ setup the following resources needed for this lab.
 
 -   Target Database: Amazon RDS PostgreSQL
 
-#Instructions
+# Instructions
 
 -   Open the link provided below
 <https://ap-southeast-1.console.aws.amazon.com/cloudformation/home?region=ap-southeast-1#/stacks/new?stackName=dmsworkshop&templateURL=https://s3-ap-southeast-1.amazonaws.com/aws-share-dyue/dmsworkshop/dmsworkshop.template>
@@ -178,7 +177,7 @@ resources."
 
 Using an EC2 instance for Workshop tools
 
-##Launch a Windows EC2 instance from a pre-installed AMI
+## Launch a Windows EC2 instance from a pre-installed AMI
 
 
 -   Connect on the AWS Console and go to Singapore Region
@@ -258,9 +257,9 @@ Using an EC2 instance for Workshop tools
 -   **Password**: Qo;u@-4Tea!b.\*wvnvughW-ll!8sy\*vl
 
 
-#AWS Schema Conversion Tool
+## AWS Schema Conversion Tool
 
-##Install AWS Schema Conversion Tool (on your laptop)
+### Install AWS Schema Conversion Tool (on your laptop)
 
 
 -   Download the latest version of AWS Schema Conversion Tool (SCT) from
@@ -381,7 +380,7 @@ RDS endpoints
 
 ![](.//media/image25.png)
 
-Run Schema Conversation In SCT
+## Run Schema Conversation In SCT
 
 Review the project screen and familiarize yourself
 
@@ -417,10 +416,9 @@ Review the project screen and familiarize yourself
 -   At this point, most of the objects from your source Oracle databased
     has been converted to PostgreSQL target
 
-Database migration Service
+# Database migration Service
 
-Create Database Migration Instance
-==================================
+## Create Database Migration Instance
 
 -   Navigate to:
     [https://ap-southeast-1.console.aws.amazon.com/dms/home?region=ap-southeast-1\#replication-instances](https://ap-northeast-1.console.aws.amazon.com/dms/home?region=ap-southeast-1#replication-instances):
@@ -446,11 +444,9 @@ change the status to '**available'**
 
 ![](.//media/image28.png)
 
-Create Source / Target Endpoints
-================================
+## Create Source / Target Endpoints
 
-Create Source Endpoint
-----------------------
+### Create Source Endpoint
 
 -   Navigate to:
     <https://ap-southeast-1.console.aws.amazon.com/dms/home?region=ap-southeast-1#endpoints>:
@@ -460,6 +456,7 @@ Create Source Endpoint
 -   Enter these Details
 
 | Endpoint Type                     | Source                            |
+|-----------------------------------|-----------------------------------|
 | Endpoint identifier               | dms-workshop-oracle               |
 | Source engine:                    | oracle                            |
 | Server name                       | \<oralce-rds-dns-endpoint\>       |
@@ -488,8 +485,7 @@ Create Source Endpoint
 
 ![](.//media/image30.png)
 
-Create Target Endpoint
-----------------------
+### Create Target Endpoint
 
 -   Navigate to:
     https://ap-southeast-1.console.aws.amazon.com/dms/home?region=ap-southeast-1\#endpoints
@@ -529,7 +525,7 @@ Create Target Endpoint
 -   Once all both source and target database endpoints have been created
     and successfully tested, you can proceed to the next step.
 
-#Create DMS Migration Task
+### Create DMS Migration Task
 
 -   Navigate to
     https://ap-southeast-1.console.aws.amazon.com/dms/home?region=ap-southeast-1\#tasks:
@@ -677,8 +673,7 @@ Once you've "sold" some tickets, you can execute the following to
 
 [Optional: Create DMS endpoints and task for Redshift]{.underline}
 
-Create Target Endpoint 
------------------------
+### Create Target Endpoint 
 
 -   Navigate to:
     https://ap-southeast-1.console.aws.amazon.com/dms/home?region=ap-southeast-1\#endpoints
@@ -707,8 +702,7 @@ Create Target Endpoint
 -   Once all both source and target database endpoints have been created
     and successfully tested, you can proceed to the next step.
 
-Create DMS Migration Task
--------------------------
+### Create DMS Migration Task
 
 -   Navigate to
     https://ap-southeast-1.console.aws.amazon.com/dms/home?region=ap-southeast-1\#tasks:
@@ -764,9 +758,9 @@ Oracle to Postgres. (This will usually take few 10s of minutes)
     -   Click on 'Table statistics' tab & review table level stats for
         your migration
 
-### Query data in Redshift
+# Query data in Redshift
 
-Configure your SQL bench with new redshift
+## Configure your SQL bench with new redshift
 
 ![](.//media/image42.png)
 
@@ -797,10 +791,8 @@ Run the script below to verify
   ------------------------------------------------------------
 
 ![](.//media/image43.png)
-----------------------------------------------------------------------
 
-Remark
-------
+### Remark
 
 Do you aware of we didn\'t do schema creation for redshift. DMS will
 create the schema if it doesn\'t exists. It is not prefer in most of the
@@ -816,8 +808,7 @@ query performance. The suggestion is
 
 [Optional: Create DMS endpoints and task for S3 ]{.underline}
 
-Create Target Endpoint
-----------------------
+### Create Target Endpoint
 
 -   Navigate to:
     https://ap-southeast-1.console.aws.amazon.com/dms/home?region=ap-southeast-1\#endpoints
@@ -866,8 +857,7 @@ Filter: {cfn-stack-name}
 
 ![](.//media/image46.png)
 
-Create DMS Migration Task
--------------------------
+### Create DMS Migration Task
 
 -   Navigate to
     https://ap-southeast-1.console.aws.amazon.com/dms/home?region=ap-southeast-1\#tasks:
@@ -931,7 +921,7 @@ In the Amazon S3 bucket , you will find the csv files.
 
 ![](.//media/image48.png)
 
-Configure Athena
+## Configure Athena
 ----------------
 
 ### Go to Athena console
