@@ -257,10 +257,8 @@ Using an EC2 instance for Workshop tools
 
 -   **Password**: Qo;u@-4Tea!b.\*wvnvughW-ll!8sy\*vl
 
-[\
-]{.smallcaps}
 
-AWS Schema Conversion Tool
+#AWS Schema Conversion Tool
 
 ##Install AWS Schema Conversion Tool (on your laptop)
 
@@ -309,9 +307,9 @@ Open Security Groups from Source / Target Database Instances
 For you to access Source and Target databases, you will have to add your
 laptop to Oracle & Postgres Security Groups
 
-  --------------------------------------------------------------------------------------------------------------
-  https://ap-southeast-1.console.aws.amazon.com/ec2/v2/home?region=ap-southeast-1\#SecurityGroups:sort=groupId
-  --------------------------------------------------------------------------------------------------------------
+  
+https://ap-southeast-1.console.aws.amazon.com/ec2/v2/home?region=ap-southeast-1\#SecurityGroups:sort=groupId
+  
 
 Add following inbound rule to respective security groups
 
@@ -327,12 +325,11 @@ Create a new SCT project
 
 -   Step 1 -- Select Source
 
-  Project Name             DMS-Workshop-Oracle2PostgreSQL
-  ------------------------ --------------------------------
-  Location                 Leave Default
-                           Transactional Database (OLTP)
-  Source Database Engine   Oracle
-  Target Database Engine   Amazon RDS for PostgreSQL
+  |Project Name             |DMS-Workshop-Oracle2PostgreSQL
+  |------------------------ |--------------------------------
+  |Location                 |Leave Default - Transactional Database (OLTP)
+  |Source Database Engine   |Oracle
+  |Target Database Engine   |Amazon RDS for PostgreSQL
 
 -   Click OK to proceed
 
@@ -342,21 +339,21 @@ Create a new SCT project
 
     -   In the top of icon, select "Connect to Oracle"
 
-+-------------+--------------------------------------+
+|-------------|--------------------------------------|
 | Type        | SID                                  |
-+=============+======================================+
+|=============|======================================|
 | Server Name | DNS name of your Oracle RDS instance |
 |             |                                      |
 |             | (follow next screen)                 |
-+-------------+--------------------------------------+
+|-------------|--------------------------------------|
 | Server Port | 1521                                 |
-+-------------+--------------------------------------+
+|-------------|--------------------------------------|
 | Oracle SID  | ORCL                                 |
-+-------------+--------------------------------------+
+|-------------|--------------------------------------|
 | User name   | dbmaster                             |
-+-------------+--------------------------------------+
+|-------------|--------------------------------------|
 | Password    | oraadmin123                          |
-+-------------+--------------------------------------+
+|-------------|--------------------------------------|
 
 RDS endpoints
 
@@ -467,14 +464,14 @@ Create Source Endpoint
 -   Click on '**Create Endpoint**'
 
 -   Enter these Details
-
-+-----------------------------------+-----------------------------------+
+|
+|-----------------------------------|-----------------------------------|
 | Endpoint Type                     | Source                            |
-+===================================+===================================+
+|===================================|===================================|
 | Endpoint identifier               | dms-workshop-oracle               |
-+-----------------------------------+-----------------------------------+
+|-----------------------------------|-----------------------------------|
 | Source engine:                    | oracle                            |
-+-----------------------------------+-----------------------------------+
+|-----------------------------------|-----------------------------------|
 | Server name                       | \<oralce-rds-dns-endpoint\>       |
 |                                   |                                   |
 |                                   | get this from here                |
@@ -482,24 +479,24 @@ Create Source Endpoint
 |                                   | https://ap-southeast-1.console.aw |
 |                                   | s.amazon.com/rds/home?region=ap-s |
 |                                   | outheast-1\#dbinstances           |
-+-----------------------------------+-----------------------------------+
+|-----------------------------------|-----------------------------------|
 | Port                              | 1521                              |
-+-----------------------------------+-----------------------------------+
+|-----------------------------------|-----------------------------------|
 | SSL Mode                          | none                              |
-+-----------------------------------+-----------------------------------+
+|-----------------------------------|-----------------------------------|
 | User name                         | dbmaster                          |
-+-----------------------------------+-----------------------------------+
+|-----------------------------------|-----------------------------------|
 | Password                          | oraadmin123                       |
-+-----------------------------------+-----------------------------------+
+|-----------------------------------|-----------------------------------|
 | SID                               | ORCL                              |
-+-----------------------------------+-----------------------------------+
+|-----------------------------------|-----------------------------------|
 | VPC                               | \[cf-stack-name\]                 |
-+-----------------------------------+-----------------------------------+
+|-----------------------------------|-----------------------------------|
 | Replication instance              | dms-workshop-instance             |
-+-----------------------------------+-----------------------------------+
+|-----------------------------------|-----------------------------------|
 | Refresh schemas after successful  | Checked                           |
 | connection test                   |                                   |
-+-----------------------------------+-----------------------------------+
+|-----------------------------------|-----------------------------------|
 
 ![](.//media/image29.png)
 
@@ -520,37 +517,37 @@ Create Target Endpoint
 
 -   Enter these Details
 
-+-----------------------------------+-----------------------------------+
+|-----------------------------------|-----------------------------------|
 | Endpoint Type                     | Target                            |
-+===================================+===================================+
+|===================================|===================================|
 | Endpoint identifier               | dms-workshop-postgres             |
-+-----------------------------------+-----------------------------------+
+|-----------------------------------|-----------------------------------|
 | Source engine:                    | postgres                          |
-+-----------------------------------+-----------------------------------+
+|-----------------------------------|-----------------------------------|
 | Server name                       | \< postgres-rds-dns-endpoint\>    |
 |                                   |                                   |
 |                                   | get this from here                |
 |                                   | https://ap-southeast-1.console.aw |
 |                                   | s.amazon.com/rds/home?region=ap-s |
 |                                   | outheast-1\#dbinstances           |
-+-----------------------------------+-----------------------------------+
+|-----------------------------------|-----------------------------------|
 | Port                              | 5432                              |
-+-----------------------------------+-----------------------------------+
+|-----------------------------------|-----------------------------------|
 | SSL Mode                          | none                              |
-+-----------------------------------+-----------------------------------+
+|-----------------------------------|-----------------------------------|
 | User name                         | postadmin                         |
-+-----------------------------------+-----------------------------------+
+|-----------------------------------|-----------------------------------|
 | Password                          | postadmin123                      |
-+-----------------------------------+-----------------------------------+
+|-----------------------------------|-----------------------------------|
 | Database Name                     | postgres                          |
-+-----------------------------------+-----------------------------------+
+|-----------------------------------|-----------------------------------|
 | VPC                               | \[cf-stack-name\]                 |
-+-----------------------------------+-----------------------------------+
+|-----------------------------------|-----------------------------------|
 | Replication instance              | dms-workshop-instance             |
-+-----------------------------------+-----------------------------------+
+|-----------------------------------|-----------------------------------|
 | Refresh schemas after successful  | Checked                           |
 | connection test                   |                                   |
-+-----------------------------------+-----------------------------------+
+|-----------------------------------|-----------------------------------|
 
 ![](.//media/image31.png)
 
@@ -805,7 +802,7 @@ Configure your SQL bench with new redshift
 
 ![](.//media/image42.png)
 
-+-----------------------------------+-----------------------------------+
+|-----------------------------------|-----------------------------------|
 | Driver                            | Redshift                          |
 |                                   | (com.amazon.redshift.jdbc.Driver) |
 |                                   |                                   |
@@ -815,7 +812,7 @@ Configure your SQL bench with new redshift
 |                                   | <https://s3.amazonaws.com/redshif |
 |                                   | t-downloads/drivers/RedshiftJDBC4 |
 |                                   | 2-1.2.7.1003.jar>                 |
-+===================================+===================================+
+|===================================|===================================|
 | Url                               | jdbc:redshift://{your redshift    |
 |                                   | endpoint}.ap-southeast-1.redshift |
 |                                   | .amazonaws.com:5439/dw            |
@@ -823,11 +820,11 @@ Configure your SQL bench with new redshift
 |                                   | https://ap-southeast-1.console.aw |
 |                                   | s.amazon.com/redshift/home?region |
 |                                   | =ap-southeast-1\#cluster-list:    |
-+-----------------------------------+-----------------------------------+
+|-----------------------------------|-----------------------------------|
 | User name                         | Rsadmin                           |
-+-----------------------------------+-----------------------------------+
+|-----------------------------------|-----------------------------------|
 | Password                          | rsAdmin123                        |
-+-----------------------------------+-----------------------------------+
+|-----------------------------------|-----------------------------------|
 
 Run the script below to verify
 
@@ -865,13 +862,12 @@ Create Target Endpoint
 
 -   Enter these Details
 
-+-----------------------------------+-----------------------------------+
 | Endpoint Type                     | Target                            |
-+===================================+===================================+
+|===================================|===================================|
 | Endpoint identifier               | dms-workshop-s3                   |
-+-----------------------------------+-----------------------------------+
+|-----------------------------------|-----------------------------------|
 | Target engine:                    | S3                                |
-+-----------------------------------+-----------------------------------+
+|-----------------------------------|-----------------------------------|
 | Service Access Role ARN\*         | arn:aws:iam::{accounted}:role/{ro |
 |                                   | le-name}                          |
 |                                   |                                   |
@@ -879,20 +875,20 @@ Create Target Endpoint
 |                                   | <https://console.aws.amazon.com/i |
 |                                   | am/home?region=ap-southeast-1#/ro |
 |                                   | les>                              |
-+-----------------------------------+-----------------------------------+
+|-----------------------------------|-----------------------------------|
 | Target bucket name\*              | {bucket-name}                     |
-+-----------------------------------+-----------------------------------+
+|-----------------------------------|-----------------------------------|
 | Target bucket folder\*            | dms                               |
-+-----------------------------------+-----------------------------------+
+|-----------------------------------|-----------------------------------|
 | VPC                               | \[cf-stack-name\]                 |
-+-----------------------------------+-----------------------------------+
+|-----------------------------------|-----------------------------------|
 | Replication instance              | dms-workshop-instance             |
-+-----------------------------------+-----------------------------------+
+|-----------------------------------|-----------------------------------|
 | Refresh schemas after successful  | Checked                           |
 | connection test                   |                                   |
-+-----------------------------------+-----------------------------------+
+|-----------------------------------|-----------------------------------|
 |                                   |                                   |
-+-----------------------------------+-----------------------------------+
+|-----------------------------------|-----------------------------------|
 
 #### IAM DMS Role 
 
@@ -994,50 +990,47 @@ Create database
 
 Run the script below
 
-  --------------------------------------------
   Create database if not exists dmsworkshop;
   --------------------------------------------
 
 Create table, change the s3 location to you bucket
 
-+-----------------------------------------------------------------------+
-| CREATE EXTERNAL TABLE IF NOT EXISTS                                   |
-| dmsworkshop.sporting\_event\_ticket (                                 |
-|                                                                       |
-| \`ID\` int,                                                           |
-|                                                                       |
-| \`SPORTING\_EVENT\_ID\` int,                                          |
-|                                                                       |
-| \`SPORT\_LOCATION\_ID\` int,                                          |
-|                                                                       |
-| \`SEAT\_LEVEL\` double,                                               |
-|                                                                       |
-| \`SEAT\_SECTION\` string,                                             |
-|                                                                       |
-| \`SEAT\_ROW\` string,                                                 |
-|                                                                       |
-| \`SEAT\` string,                                                      |
-|                                                                       |
-| \`TICKETHOLDER\_ID\` int,                                             |
-|                                                                       |
-| \`TICKET\_PRICE\` double                                              |
-|                                                                       |
-| )                                                                     |
-|                                                                       |
-| ROW FORMAT SERDE                                                      |
-| \'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe\'                |
-|                                                                       |
-| WITH SERDEPROPERTIES (                                                |
-|                                                                       |
-| \'serialization.format\' = \',\',                                     |
-|                                                                       |
-| \'field.delim\' = \',\'                                               |
-|                                                                       |
-| ) LOCATION                                                            |
-| \'s3://{bucket\_name}/dms/DMS\_SAMPLE/SPORTING\_EVENT\_TICKET/\'      |
-|                                                                       |
-| TBLPROPERTIES (\'has\_encrypted\_data\'=\'false\');                   |
-+-----------------------------------------------------------------------+
+ CREATE EXTERNAL TABLE IF NOT EXISTS                                   
+ dmsworkshop.sporting\_event\_ticket (                                 
+                                                                       
+ \`ID\` int,                                                           
+                                                                       
+ \`SPORTING\_EVENT\_ID\` int,                                          
+                                                                       
+ \`SPORT\_LOCATION\_ID\` int,                                          
+                                                                       
+ \`SEAT\_LEVEL\` double,                                               
+                                                                       
+ \`SEAT\_SECTION\` string,                                             
+                                                                       
+ \`SEAT\_ROW\` string,                                                 
+                                                                       
+ \`SEAT\` string,                                                      
+                                                                       
+ \`TICKETHOLDER\_ID\` int,                                             
+                                                                       
+ \`TICKET\_PRICE\` double                                              
+                                                                       
+ )                                                                     
+                                                                       
+ ROW FORMAT SERDE                                                      
+ \'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe\'                
+                                                                       
+ WITH SERDEPROPERTIES (                                                
+                                                                       
+ \'serialization.format\' = \',\',                                     
+                                                                       
+ \'field.delim\' = \',\'                                               
+                                                                       
+ ) LOCATION                                                            
+ \'s3://{bucket\_name}/dms/DMS\_SAMPLE/SPORTING\_EVENT\_TICKET/\'      
+                                                                       
+ TBLPROPERTIES (\'has\_encrypted\_data\'=\'false\');                   
 
 Run the script below to verify
 
@@ -1061,9 +1054,9 @@ Delete CloudFormation stack from the CloudFormation console.
 
 Appendix
 
-+----------------------------------------------------------+
+
+
 | Oracle - Get row count for all tables                    |
-+==========================================================+
 | SELECT table\_name, num\_rows                            |
 |                                                          |
 | FROM dba\_tables                                         |
@@ -1071,9 +1064,7 @@ Appendix
 | WHERE owner = \'DMS\_SAMPLE\'                            |
 |                                                          |
 | ORDER BY table\_name;                                    |
-+----------------------------------------------------------+
 | Postgres                                                 |
-+----------------------------------------------------------+
 | SELECT relname AS table\_name, n\_live\_tup AS num\_rows |
 |                                                          |
 | FROM pg\_stat\_user\_tables                              |
@@ -1081,11 +1072,8 @@ Appendix
 | WHERE schemaname = \'dms\_sample\'                       |
 |                                                          |
 | ORDER BY table\_name                                     |
-+----------------------------------------------------------+
 
-+-----------------------------------------------------------------------+
 | Oracle - Command to get database size on disk                         |
-+=======================================================================+
 | SELECT owner, SUM(bytes) / 1024 / 1024 Size\_MB                       |
 |                                                                       |
 | FROM dba\_segments                                                    |
@@ -1093,14 +1081,11 @@ Appendix
 | WHERE owner = \'DMS\_SAMPLE\'                                         |
 |                                                                       |
 | group by owner;                                                       |
-+-----------------------------------------------------------------------+
 | Postgres - Command to get database size on disk                       |
-+-----------------------------------------------------------------------+
 | SELECT pg\_size\_pretty(CAST((SELECT SUM(pg\_total\_relation\_size    |
 | (table\_schema \|\| \'.\' \|\| table\_name)) FROM                     |
 | information\_schema.tables WHERE table\_schema = \'dms\_sample\') AS  |
 | BIGINT)) AS tables\_schema\_size                                      |
-+-----------------------------------------------------------------------+
 
   Drop dms\_sample and restart dms task
   ---------------------------------------
