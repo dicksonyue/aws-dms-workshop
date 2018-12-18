@@ -1,5 +1,5 @@
 ---
-# DMS Migration run book
+# AWS DMS migration runbook with RDS, Redshift, S3 as target
     AWS Database Migration Service
 
     AWS Schema Conversion Tool
